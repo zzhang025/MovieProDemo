@@ -10,6 +10,8 @@
     <None Remove="Npgsql.EntityFrameworkCore.PostgreSQL" />
     <None Remove="Models\Settings\" />
     <None Remove="Models\TMDB\" />
+    <None Remove="Models\Database\" />
+    <None Remove="Enums\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -28,5 +30,7 @@
   <ItemGroup>
     <Folder Include="Models\Settings\" />
     <Folder Include="Models\TMDB\" />
+    <Folder Include="Models\Database\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
 </Project>
