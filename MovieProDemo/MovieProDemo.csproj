@@ -12,6 +12,9 @@
     <None Remove="Models\TMDB\" />
     <None Remove="Models\Database\" />
     <None Remove="Enums\" />
+    <None Remove="Models\ViewModels\" />
+    <None Remove="Services\" />
+    <None Remove="Services\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -32,5 +35,8 @@
     <Folder Include="Models\TMDB\" />
     <Folder Include="Models\Database\" />
     <Folder Include="Enums\" />
+    <Folder Include="Models\ViewModels\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Interfaces\" />
   </ItemGroup>
 </Project>
