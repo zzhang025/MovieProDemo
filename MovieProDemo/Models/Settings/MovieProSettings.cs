@@ -11,7 +11,7 @@ namespace MovieProDemo.Models.Settings
         public string DefaultCastImage { get; set; }
 
         public DefaultCollection DefaultCollection { get; set; }
-        public DefaultCollection DefaultCredentials { get; set; }
+        public DefaultCredentials DefaultCredentials { get; set; }
     }
 
     public class DefaultCollection

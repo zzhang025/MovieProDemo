@@ -27,6 +27,9 @@ namespace MovieProDemo.Services
         public async Task ManageDataAsync()
         {
             await UpdateDataBaseAsync();
+            await SeedRolesAsync();
+            await SeedUserAsync();
+            await SeedCollections();
         }
 
         private async Task UpdateDataBaseAsync()
@@ -41,6 +44,35 @@ namespace MovieProDemo.Services
             var adminRole = _appSettings.MovieProSettings.DefaultCredentials.Role;
 
             await _roleManager.CreateAsync(new IdentityRole(adminRole));
+        }
+
+        private async Task SeedUserAsync()
+        {
+            if (_userManager.Users.Any()) return;
+
+            var credentials = _appSettings.MovieProSettings.DefaultCredentials;
+            var newUser = new IdentityUser()
+            {
+                Email = credentials.Email,
+                UserName = credentials.Email,
+                EmailConfirmed = true
+            };
+
+            await _userManager.CreateAsync(newUser, credentials.Password);
+            await _userManager.AddToRoleAsync(newUser, credentials.Role);
+        }
+
+        private async Task SeedCollections()
+        {
+            if (_dbContext.Collection.Any()) return;
+
+            _dbContext.Add(new DefaultCollection()
+            {
+                Name = _appSettings.MovieProSettings.DefaultCollection.Name,
+                Description = _appSettings.MovieProSettings.DefaultCollection.Description
+            });
+
+            await _dbContext.SaveChangesAsync();
 
         }
 
