@@ -58,32 +58,31 @@ namespace MovieProDemo.Services
 
         public async Task<MovieDetail> MovieDetailAsync(int id)
         {
-            // Ste1: Setup default return object
+            //Step 0: Setup default return object
             MovieDetail movieDetail = new();
 
-            // Step2: Assemble the request
+            //Step 1:
             var query = $"{_appSettings.TMDBSettings.BaseUrl}/movie/{id}";
             var queryParams = new Dictionary<string, string>()
             {
-                {"api_key", _appSettings.MovieProSettings.TmDbApiKey },
-                {"language",_appSettings.TMDBSettings.QueryOptions.Language },
-                {"page",_appSettings.TMDBSettings.QueryOptions.AppendToResponse }
+                { "api_key", _appSettings.MovieProSettings.TmDbApiKey },
+                { "language", _appSettings.TMDBSettings.QueryOptions.Language},
+                { "append_to_response", _appSettings.TMDBSettings.QueryOptions.AppendToResponse}
             };
             var requestUri = QueryHelpers.AddQueryString(query, queryParams);
 
-            // Step3: Create client and execute request
+            //Step 2: Create client and execute request
             var client = _httpClient.CreateClient();
             var request = new HttpRequestMessage(HttpMethod.Get, requestUri);
             var response = await client.SendAsync(request);
 
-            // Step4: Deserialize into Moviedetail
+            //Step 3: Return the Movie Detail object
             if (response.IsSuccessStatusCode)
             {
                 using var responseStream = await response.Content.ReadAsStreamAsync();
                 var dcjs = new DataContractJsonSerializer(typeof(MovieDetail));
                 movieDetail = dcjs.ReadObject(responseStream) as MovieDetail;
             }
-
             return movieDetail;
         }
 

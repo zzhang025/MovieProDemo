@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MovieProDemo.Data;
+using MovieProDemo.Models.Database;
 using MovieProDemo.Models.Settings;
 
 namespace MovieProDemo.Services
@@ -66,7 +67,7 @@ namespace MovieProDemo.Services
         {
             if (_dbContext.Collection.Any()) return;
 
-            _dbContext.Add(new DefaultCollection()
+            _dbContext.Add(new Collection()
             {
                 Name = _appSettings.MovieProSettings.DefaultCollection.Name,
                 Description = _appSettings.MovieProSettings.DefaultCollection.Description
