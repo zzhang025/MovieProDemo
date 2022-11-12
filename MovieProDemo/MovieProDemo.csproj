@@ -17,6 +17,8 @@
     <None Remove="Services\Interfaces\" />
     <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
+    <None Remove="Views\Movies\" />
+    <None Remove="Views\Actors\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -42,5 +44,7 @@
     <Folder Include="Models\ViewModels\" />
     <Folder Include="Services\" />
     <Folder Include="Services\Interfaces\" />
+    <Folder Include="Views\Movies\" />
+    <Folder Include="Views\Actors\" />
   </ItemGroup>
 </Project>
