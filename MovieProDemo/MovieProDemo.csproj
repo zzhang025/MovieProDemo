@@ -4,6 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>aspnet-MovieProDemo-306D34F4-F599-46AF-BDA8-71AAD49AC37E</UserSecretsId>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <VariantGlobalization>true</VariantGlobalization>
   </PropertyGroup>
 
   <ItemGroup>
